@@ -9,7 +9,7 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                    <img src="/img/<?= $komik['sampul']; ?>" class="img-fluid rounded-start" alt="...">
+                        <img src="/img/<?= $komik['sampul']; ?>" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -19,7 +19,11 @@
                             <!-- Button Edit dan Delete -->
                             <a href="/komik/edit/<?= $komik['slug']; ?>" class="btn btn-warning">Edit</a>
 
-                            <a href="/komik/delete/<?= $komik['slug']; ?>" class="btn btn-danger tombol-hapus">Delete</a>
+                            <form action="/komik/<?= $komik['id']; ?>" method="post" class="d-inline">
+                                <?= csrf_field(); ?>
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')">Delete</button>
+                            </form>
 
                             <br><br>
                             <a href="/komik">Kembali ke daftar komik</a>
