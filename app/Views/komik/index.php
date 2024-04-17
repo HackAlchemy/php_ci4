@@ -2,10 +2,16 @@
 
 <?= $this->section('content'); ?>
 <div class="container mt-3">
-    <div class="row">
+    <div class="row ">
         <div class="col">
-            <h1>Daftar Comic</h1>
-            <table class="table">
+            <a href="komik/create" class="btn btn-primary my-3">Tambah Komik</a>
+            <h1 class>Daftar Komik</h1>
+            <?php if (session()->getFlashdata('pesan')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session()->getFlashdata('pesan'); ?>
+            </div>
+            <?php endif; ?>
+            <table class="table table-responsive table-hover table-sm table-bordered table-condensed">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
@@ -15,14 +21,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($komik as $k) : ?>
                     <tr>
-                        <th scope="row">1</th>
-                        <td><img src="https://upload.wikimedia.org/wikipedia/id/9/94/NarutoCoverTankobon1.jpg" alt="naruto" class="sampul"></td>
-                        <td>Naruto</td>
+                        <th scope="row"><?= $i++; ?></th>
+                        <td><img src="/img/<?= $k['sampul']; ?>" class="sampul"></td>
+                        <td><?= $k['judul']; ?></td>
                         <td>
-                            <a href="" class="btn btn-success">Detail</a>
+                            <a href="/komik/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
                         </td>
                     </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>
