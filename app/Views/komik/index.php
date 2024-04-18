@@ -17,6 +17,8 @@
                         <th scope="col">No</th>
                         <th scope="col">Sampul</th>
                         <th scope="col">Judul</th>
+                        <th scope="col">Penulis</th>
+                        <th scope="col">Penerbit</th>
                         <th scope="col">Aksi</th>
                     </tr>
                 </thead>
@@ -27,6 +29,8 @@
                         <th scope="row"><?= $i++; ?></th>
                         <td><img src="/img/<?= $k['sampul']; ?>" class="sampul"></td>
                         <td><?= $k['judul']; ?></td>
+                        <td><?= $k['penulis']; ?></td>
+                        <td><?= $k['penerbit']; ?></td>
                         <td>
                             <a href="/komik/<?= $k['slug']; ?>" class="btn btn-success">Detail</a>
                         </td>
