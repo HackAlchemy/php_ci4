@@ -6,6 +6,8 @@ class Pages extends BaseController
 {
     public function index()
     {
+        $faker = \Faker\Factory::create();
+
         $data = [
             'title' => 'Home | Alham Manazil'
         ];

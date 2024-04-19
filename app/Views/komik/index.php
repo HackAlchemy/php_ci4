@@ -11,7 +11,7 @@
                 <?= session()->getFlashdata('pesan'); ?>
             </div>
             <?php endif; ?>
-            <table class="table table-responsive table-hover table-sm table-bordered table-condensed">
+            <table id="data-table" class="table table-responsive table-hover table-striped">
                 <thead>
                     <tr>
                         <th scope="col">No</th>
